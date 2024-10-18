@@ -1,43 +1,36 @@
-
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
-}
-
 .wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .header {
-    text-align: center;
     background-color: #3498db;
     color: white;
-    padding: 30px 0;
+    padding: 20px 0;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
 }
 
 .navigation ul {
     display: flex;
-    justify-content: space-around;
     list-style-type: none;
-    padding: 20px 0;
+    margin-left: 20px;
 }
 
 .nav-link {
     text-decoration: none;
-    color: #333;
+    color: white;
     transition: color 0.3s ease;
+    padding: 10px 15px;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 1px;
 }
 
 .nav-link:hover,
@@ -45,28 +38,76 @@ body {
     color: #2ecc71;
 }
 
+.main-menu {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.main-menu-item {
+    margin-right: 20px;
+}
+
+.main-menu-item a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.main-menu-item a:hover,
+.main-menu-item a:focus {
+    color: #2ecc71;
+}
+
 .content {
+    flex-grow: 1;
     background-color: white;
     padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
 }
 
 .story-container p {
-    margin-bottom: 20px;
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    margin-bottom: 25px;
+    font-size: 18px;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
 }
 
 .footer {
-    text-align: center;
     background-color: #2c3e50;
     color: white;
-    padding: 10px 0;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 16px;
+    letter-spacing: 0.5px;
 }
 
+/* Адаптивный дизайн */
+@media (max-width: 768px) {
+    .navigation ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
+    .nav-link {
+        margin-bottom: 15px;
+    }
+
+    .content {
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .story-container p {
+        font-size: 16px;
+    }
+
+    .footer {
+        padding: 20px 0;
+    }
+}
