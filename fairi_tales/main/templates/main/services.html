@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+<div class="content-block">
+    <h2>Наши Сервисы</h2>
+
+    <p>Мы предлагаем широкий спектр услуг, которые помогут вам погрузиться в мир сказок и историй.</p>
+
+    <div class="services-grid">
+        <div class="service-item">
+            <h3>Сказки онлайн</h3>
+            <p>Аудио и видео версии популярных сказок для детей и взрослых.</p>
+        </div>
+
+        <div class="service-item">
+            <h3>Истории о реальных людях</h3>
+            <p>Интригующие истории о выдающихся личностях и их приключениях.</p>
+        </div>
+
+        <div class="service-item">
+            <h3>Интерактивные игры</h3>
+            <p>Игровые элементы для детей и взрослых.</p>
+        </div>
+
+        <div class="service-item">
+            <h3>Анализ текстов</h3>
+            <p>Аналитические статьи о символике и скрытых смыслах в сказках.</p>
+        </div>
+    </div>
+
+    <p>Наша команда постоянно работает над расширением нашего каталога услуг и улучшением пользовательского опыта.</p>
+</div>
+
+<style>
+.content-block {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.content-block h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.content-block p {
+    margin-bottom: 15px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.service-item {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.service-item h3 {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.service-item p {
+    color: #666;
+}
+</style>
+
+{% endblock %}

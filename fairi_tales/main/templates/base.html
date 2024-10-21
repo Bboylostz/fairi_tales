@@ -29,9 +29,16 @@
         header {
             background-color: var(--primary-color);
             color: white;
-            padding: 20px;
-            text-align: center;
+            padding: 20px 40px; /* Увеличиваем пространство справа */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
+header h1 {
+    margin: auto;
+    margin-top: 10px; /* Добавляет отступ сверху */
+    margin-bottom: 10px; /* Добавляет отступ снизу */
+}
 
         .left-nav {
             width: 250px;
@@ -174,25 +181,57 @@
             border-width: 10px 0 0 10px;
             border-color: transparent transparent transparent white;
         }
+         .horizontal-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .horizontal-nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .horizontal-nav li {
+            margin-bottom: 0;
+        }
+
+        .horizontal-nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .horizontal-nav a:hover {
+            color: var(--accent-color);
+        }
     </style>
 </head>
 <body>
- <!-- Шапка -->
-    <header>
-        <h1>Сказки</h1>
-    </header>
-
-    <!-- Левая панель навигации -->
-    <nav class="left-nav">
+<!-- Шапка -->
+<header>
+    <h1>Сказки</h1>
+    <nav class="horizontal-nav">
         <ul>
-            <li><a href="home" class="active">Главная</a></li>
-            <li><a href="about">О нас</a></li>
-            <li><a href="#services">Услуги</a></li>
-            <li><a href="#contact">Контакты</a></li>
+            <li><a href="/">Главная</a></li>
+            <li><a href="/about">О нас</a></li>
+            <li><a href="/services">Услуги</a></li>
+            <li><a href="/contact">Контакты</a></li>
         </ul>
     </nav>
-    {% block content %}
+</header>
 
-    {% endblock %}
+<!-- Левая панель навигации в процессе -->
+<nav class="left-nav">
+    <ul>
+        <li><a href="/">сказки</a></li>
+        <li><a href="/about">истории</a></li>
+        <li><a href="/services">бла - бла</a></li>
+        <li><a href="/contact">еще чтото</a></li>
+    </ul>
+</nav>
+
+{% block content %}
+{% endblock %}
 </body>
 </html>
