@@ -1,0 +1,167 @@
+:root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --background-color: #ecf0f1;
+            --text-color: #212121;
+            --light-gray: #f1f1f1;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .left-nav {
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            z-index: 999;
+        }
+
+        .left-nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .left-nav li {
+            margin-bottom: 20px;
+        }
+
+        .left-nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            display: block;
+            padding: 15px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .left-nav a:hover,
+        .left-nav a.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        main {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        .story-item {
+            width: 200px;
+            height: 200px;
+            border-radius: 5px;
+            background-color: white;
+            margin: 10px;
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .story-item:hover,
+        .story-item.active {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .story-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        @media (max-width: 1200px) {
+            .story-grid {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .left-nav {
+                width: 180px;
+            }
+
+            main {
+                margin-left: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .left-nav {
+                width: 150px;
+            }
+
+            main {
+                margin-left: 150px;
+            }
+        }
+
+        .character-gallery {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .character-circle {
+            width: 200px;
+            height: 200px;
+            border: 2px solid var(--accent-color);
+            border-radius: 50%;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .character-circle:hover,
+        .character-circle.active {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border-color: var(--primary-color);
+        }
+
+        .character-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .character-name {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .character-name::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 10px 0 0 10px;
+            border-color: transparent transparent transparent white;
+        }

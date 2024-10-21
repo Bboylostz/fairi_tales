@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+<main>
+        <section id="hero">
+            <h2>Добро пожаловать в мир сказок!</h2>
+            <p>Здесь вы найдете самые интересные и захватывающие сказки для детей и взрослых.</p>
+        </section>
+
+        <section id="popular-stories">
+            <h2>Популярные сказки</h2>
+            <div class="story-grid">
+                <div class="story-item">
+                    <img src="image1.jpg" alt="Сказка 1">
+                    <h3>Сказка 1</h3>
+                    <p>Краткое описание первой сказки...</p>
+                </div>
+                <div class="story-item">
+                    <img src="image2.jpg" alt="Сказка 2">
+                    <h3>Сказка 2</h3>
+                    <p>Краткое описание второй сказки...</p>
+                </div>
+                <div class="story-item">
+                    <img src="image3.jpg" alt="Сказка 3">
+                    <h3>Сказка 3</h3>
+                    <p>Краткое описание третьей сказки...</p>
+                </div>
+                <div class="story-item">
+                    <img src="image4.jpg" alt="Сказка 4">
+                    <h3>Сказка 4</h3>
+                    <p>Краткое описание четвертой сказки...</p>
+                </div>
+                <div class="story-item">
+                    <img src="image5.jpg" alt="Сказка 5">
+                    <h3>Сказка 5</h3>
+                    <p>Краткое описание пятой сказки...</p>
+                </div>
+                <div class="story-item">
+                    <img src="image6.jpg" alt="Сказка 6">
+                    <h3>Сказка 6</h3>
+                    <p>Краткое описание шестой сказки...</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="character-gallery">
+            <h2>Галерея персонажей</h2>
+            <div class="character-gallery">
+                <div class="character-circle">
+                    <img src="character1.png" alt="Персонаж 1">
+                </div>
+                <div class="character-circle">
+                    <img src="character2.png" alt="Персонаж 2">
+                </div>
+                <div class="character-circle">
+                    <img src="character3.png" alt="Персонаж 3">
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials">
+            <h2>Что говорят наши читатели</h2>
+            <blockquote>
+                <p>Отзыв клиента 1</p>
+                <cite>Имя клиента 1</cite>
+            </blockquote>
+            <blockquote>
+                <p>Отзыв клиента 2</p>
+                <cite>Имя клиента 2</cite>
+            </blockquote>
+        </section>
+    </main>
+{% endblock %}
