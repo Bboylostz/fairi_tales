@@ -205,6 +205,92 @@ header h1 {
         .horizontal-nav a:hover {
             color: var(--accent-color);
         }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .story-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .story-card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .story-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .story-image {
+            width: 100%;
+            height: auto;
+            max-height: 200px;
+            object-fit: cover;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+
+        .genre-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .genre-list li {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 25px;
+            margin-right: 10px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .read-more {
+            display: block;
+            margin-top: auto;
+            text-align: center;
+            color: #007bff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .read-more:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -213,25 +299,45 @@ header h1 {
     <h1>Сказки</h1>
     <nav class="horizontal-nav">
         <ul>
-            <li><a href="/">Главная</a></li>
+            <li><a href="/home">Главная</a></li>
             <li><a href="/about">О нас</a></li>
             <li><a href="/services">Услуги</a></li>
             <li><a href="/contact">Контакты</a></li>
         </ul>
     </nav>
 </header>
+<main>
+        {% block content %}
+            <h1>Список сказок</h1>
+
+            {% for story in stories %}
+                <div class="story">
+                    <h2>{{ story.title }}</h2>
+                    <p>Автор: {{ story.autor.name }} ({{ story.autor.count }} сказок)</p>
+                    <ul>
+                        {% for genre in story.genre.all %}
+                            <li>{{ genre.name }}</li>
+                        {% endfor %}
+                    </ul>
+                    <p>Краткое содержание:</p>
+                    <p>{{ story.content|truncatewords:20 }}</p>
+                </div>
+            {% empty %}
+                <p>Здесь пока нет сказок.</p>
+            {% endfor %}
+        {% endblock %}
+    </main>
 
 <!-- Левая панель навигации в процессе -->
 <nav class="left-nav">
     <ul>
-        <li><a href="/">сказки</a></li>
-        <li><a href="/about">истории</a></li>
-        <li><a href="/services">бла - бла</a></li>
-        <li><a href="/contact">еще чтото</a></li>
+        <li><a href="/story_list">сказки</a></li>
+        <li><a href="/">истории</a></li>
+        <li><a href="/">бла - бла</a></li>
+        <li><a href="/">еще чтото</a></li>
     </ul>
 </nav>
 
-{% block content %}
-{% endblock %}
+
 </body>
 </html>

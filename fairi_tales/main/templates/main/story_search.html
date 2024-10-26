@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Результаты поиска</h1>
+<p>Найдено {{ stories|length }} сказок:</p>
+<ul>
+{% for story in stories %}
+    <li>{{ story.title }} - {{ story.author.name }} - {{ story.genre.all|join:', ' }}</li>
+{% endfor %}
+</ul>
+{% endblock %}

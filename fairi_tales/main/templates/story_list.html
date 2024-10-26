@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Список сказок</h1>
+
+    <div class="container">
+        {% for story in stories %}
+            <div class="story-card">
+                <div class="card-header">
+                    <h2>{{ story.title }}</h2>
+                    <p>Автор: <span class="author">{{ story.autor.name }}</span> {{ story.autor.count }} </p>
+                </div>
+                <div class="card-body">
+                    <!-- <img src="{{ story.image.url }}" alt="Обложка сказки" class="story-image"> -->
+                    <ul class="genre-list">
+                        {% for genre in story.genre.all %}
+                            <li>{{ genre.name }}</li>
+                        {% endfor %}
+                    </ul>
+                    <p>Краткое содержание:</p>
+                    <p>{{ story.content|truncatewords:20 }}</p>
+                </div>
+                <div class="card-footer">
+                    <a href="{% url 'story_detail' story.id %}" class="read-more">Читать полностью</a>
+                </div>
+            </div>
+        {% empty %}
+            <p>Здесь пока нет сказок.</p>
+        {% endfor %}
+
+        <!-- Пагинация -->
+        {% if stories.has_previous %}
+            <button onclick="location.href='{% url 'story_list' %}?page={{ stories.previous_page_number }}'">Назад</button>
+        {% endif %}
+        <span>Страница {{ stories.number }} из {{ stories.paginator.num_pages }}</span>
+        {% if stories.has_next %}
+            <button onclick="location.href='{% url 'story_list' %}?page={{ stories.next_page_number }}'">Дальше</button>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ story.title }}</h1>
+  
+  <p>Автор: {{ story.autor.name }}</p>
+  <p>Жанры: 
+    {% for genre in story.genre.all %}
+      {{ genre.name }}
+    {% endfor %}
+  </p>
+  
+  <article>
+    {{ story.content|safe }}
+  </article>
+{% endblock %}
