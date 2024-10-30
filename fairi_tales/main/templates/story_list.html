@@ -28,13 +28,30 @@
             <p>Здесь пока нет сказок.</p>
         {% endfor %}
 
-        <!-- Пагинация -->
-        {% if stories.has_previous %}
-            <button onclick="location.href='{% url 'story_list' %}?page={{ stories.previous_page_number }}'">Назад</button>
-        {% endif %}
-        <span>Страница {{ stories.number }} из {{ stories.paginator.num_pages }}</span>
-        {% if stories.has_next %}
-            <button onclick="location.href='{% url 'story_list' %}?page={{ stories.next_page_number }}'">Дальше</button>
-        {% endif %}
-    </div>
+       <div class="pagination">
+    {% if stories.has_previous %}
+        <a href="{% url 'story_list' %}?page={{ stories.previous_page_number }}">Назад</a>
+    {% else %}
+        <span>Назад</span>
+    {% endif %}
+
+    <span>Страница {{ stories.number }} из {{ stories.paginator.num_pages }}</span>
+
+    {% if stories.has_next %}
+        <a href="{% url 'story_list' %}?page={{ stories.next_page_number }}">Дальше</a>
+    {% else %}
+        <span>Дальше</span>
+    {% endif %}
+</div>
+        <script>
+function goToPage() {
+    var input = document.getElementById('pageInput');
+    var pageNumber = parseInt(input.value);
+    if (!isNaN(pageNumber) && pageNumber > 0 && pageNumber <= {{ stories.paginator.num_pages }}) {
+        window.location.href = '?page=' + pageNumber;
+    } else {
+        alert('Пожалуйста, введите корректный номер страницы.');
+    }
+}
+</script>
 {% endblock %}
